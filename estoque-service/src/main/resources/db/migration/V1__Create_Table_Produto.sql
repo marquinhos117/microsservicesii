@@ -1,0 +1,10 @@
+CREATE TABLE produto (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    codigo VARCHAR(30) NOT NULL UNIQUE,
+    nome VARCHAR(100) NOT NULL,
+    descricao VARCHAR(255),
+    preco DECIMAL(14,2) NOT NULL CHECK (preco >= 0),
+    quantidade_estoque INTEGER NOT NULL DEFAULT 0 CHECK (quantidade_estoque >= 0),
+    ativo BOOLEAN NOT NULL DEFAULT 1,
+    criado_em DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
